@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="home-btn">Home</button>
+  </body>
+</html>
+
+<script>
+  const homeBtn = document.getElementById("home-btn");
+  homeBtn.addEventListener("click", function () {
+    console.log(this);
+    this.innerText = "Clicekd Button";
+    this.style.backgroundColor = "tomato";
+    // this.style.display = "none";
+  });
+</script>

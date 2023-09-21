@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<script>
+  let a = 10;
+  const b = 20;
+
+  function grandParent() {
+    let gp1 = 30;
+    const gp2 = 40;
+
+    function ourParent() {
+      let op1 = true;
+      const op2 = false;
+
+      function us() {
+        let us1 = "Rahul";
+        let us2 = "Mahesh";
+        let gp1 = "12p";
+        /*
+        scope channing - pahle inner function me check hoga , waha nahi mila to upper fun waha nahi to uske upper ka fun goes upto it find*/
+        console.log({ gp1, gp2 });
+      }
+
+      us(); // us function call
+    }
+
+    ourParent(); // ourParent function call
+  }
+
+  grandParent(); // grandParent function call
+</script>

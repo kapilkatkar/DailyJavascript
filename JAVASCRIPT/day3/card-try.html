@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .child-div {
+      height: 100px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+  </style>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  let elemContainers = document.getElementById("container");
+  let numbers = [
+    10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100,
+    105,
+  ];
+  for (let i = 0; i < numbers.length; i++) {
+    let childDiv = document.createElement("div");
+    childDiv.innerHTML = numbers[i];
+    elemContainers.appendChild(childDiv);
+    childDiv.className = "child-div";
+    numbers[i] % 2 === 0
+      ? (childDiv.style.backgroundColor = "red")
+      : (childDiv.style.backgroundColor = "blue");
+
+    //inside of for loop i,e why childDiv
+
+    childDiv.addEventListener("click", onClickFun);
+
+    function onClickFun(e) {
+      let targetedElm = e.target.innerHTML;
+      if (e.target) {
+        alert(`you clicked on card having number : ${targetedElm}`);
+      }
+    }
+  }
+</script>

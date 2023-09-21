@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p class="para" id="para-id">Gokul 1</p>
+    <h1 class="para">Gokul 2</h1>
+    <span class="para">Gokul 3</span>
+    <div class="para">Gokul 4</div>
+    <h2 class="para">Gokul 5</h2>
+  </body>
+</html>
+
+<script>
+  const paraElems = document.getElementsByClassName("para");
+  console.log("ParaElems: ", paraElems);
+
+  for (let i = 0; i < paraElems.length; i++) {
+    paraElems[i].style.color = "red";
+    paraElems[i].style.textTransform = "uppercase";
+  }
+</script>

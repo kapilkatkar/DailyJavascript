@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>products with search option</title>
+    <style>
+      #products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .card {
+        width: 250px;
+        border: 1px solid silver;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .product-img {
+        height: 100px;
+        width: 100px;
+      }
+      #search {
+        height: 30px;
+        width: 350px;
+      }
+      .main-conatiner {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-conatiner">
+      <input
+        type="search"
+        name="search"
+        id="search"
+        placeholder="search here"
+      />
+      <div id="products"></div>
+    </div>
+  </body>
+</html>
+<script>
+  let receivedObj = [];
+  //fetching the data
+  const result = fetch("https://fakestoreapi.com/products");
+  result
+    .then((obj) => obj.json()) //received and transformed to json
+    .then((meraData) => {
+      console.log("meraData", meraData);
+      renderUI(meraData); //used it for a function
+      //assigning it to globale variable to use outside of the function
+      receivedObj = meraData;
+      console.log("receivedObj", receivedObj);
+    });
+
+  //to render UI by using fetch data
+  function renderUI(data) {
+    console.log("Data insider renderUI: ", data);
+    let mainContainer = document.getElementById("products");
+    mainContainer.innerHTML = "";
+
+    if (data.length === 0) {
+      // Display a message if there are no products available
+      mainContainer.innerHTML = "No products available.";
+      return;
+    }
+
+    for (let i = 0; i < data.length; i++) {
+      let cardElem = document.createElement("div");
+      cardElem.className = "card";
+
+      let imgElem = document.createElement("img");
+      imgElem.className = "product-img";
+      imgElem.src = data[i].image;
+      cardElem.appendChild(imgElem);
+
+      let priceElem = document.createElement("p");
+      priceElem.className = "product-price";
+      priceElem.innerHTML = data[i].price;
+      cardElem.appendChild(priceElem);
+
+      let titleElem = document.createElement("div");
+      titleElem.className = "product-title";
+      titleElem.innerHTML = data[i].title;
+      cardElem.appendChild(titleElem);
+
+      mainContainer.appendChild(cardElem);
+    }
+  }
+
+  //adding an event on input box
+  document.getElementById("search").addEventListener("input", searchProducts);
+
+  //to search input
+  function searchProducts() {
+    //to delay the response
+    debounceTimer = setTimeout(() => {
+      let searchedInput = document
+        .getElementById("search")
+        .value.trim()
+        .toLowerCase();
+      console.log("searchedInput", searchedInput);
+
+      // Filter the products based on the search search results
+      const searchResults = receivedObj.filter((product) =>
+        product.title.toLowerCase().includes(searchedInput)
+      );
+
+      // Display the search results
+      renderUI(searchResults);
+    }, 600);
+  }
+</script>

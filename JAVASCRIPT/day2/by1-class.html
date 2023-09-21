@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="names">
+      <!-- <p>kapil</p>
+      <p>romesh</p>
+      <p>Akash</p>
+      <p>ali</p>
+      <p>sonia</p> -->
+    </div>
+  </body>
+</html>
+
+<script>
+  const namesElem = document.getElementById("names");
+  const names = ["kapil", "romesh", "Akash", "ali", "sonia"];
+  for (let i = 0; i < names.length; i++) {
+    const pTag = document.createElement("div");
+    pTag.innerText = names[i];
+    namesElem.appendChild(pTag);
+  }
+</script>

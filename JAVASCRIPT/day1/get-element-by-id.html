@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="romesh">Romesh</p>
+    <div id="romesh">romesh1</div>
+    <span id="Hellow">Hellow</span>
+    <div id="world">world</div>
+  </body>
+</html>
+<script>
+  const paraElem = document.getElementById("romesh");
+  console.log("paraElem", paraElem);
+  const paraElem1 = document.getElementById("romesh");
+  console.log("paraElem1", paraElem1);
+  const hellow = document.getElementById("Hellow");
+  console.log("hellow", hellow);
+  const world = document.getElementById("world");
+  console.log("world", world);
+
+  let worldtxt = world.innerHTML;
+  console.log("worldtxt", worldtxt);
+  paraElem.style.color = "red";
+
+  worldtxt;
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="home-btn">Home</button>
+    <button id="about-btn">About</button>
+    <button id="pricing-btn">Pricing</button>
+  </body>
+</html>
+
+<script>
+  const homeBtn = document.getElementById("home-btn");
+  const aboutBtn = document.getElementById("about-btn");
+  const pricingBtn = document.getElementById("pricing-btn");
+
+  //one way
+  homeBtn.addEventListener("click", function () {
+    alert("home is clicked");
+  });
+
+  //second way
+  aboutBtn.addEventListener("click", () => {
+    alert("About is clicked");
+  });
+
+  //third way
+  pricingBtn.addEventListener("click", onHomeClicked);
+  function onHomeClicked() {
+    alert("on pricing is clicked");
+  }
+</script>
